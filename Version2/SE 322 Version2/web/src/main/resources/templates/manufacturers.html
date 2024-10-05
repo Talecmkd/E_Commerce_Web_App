@@ -1,0 +1,33 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">E-COMMERCE SHOP</h1>
+            <h3 class="jumbotron-heading">All manufacturers</h3>
+        </div>
+    </section>
+
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12" th:if="${manufacturers.size() > 0}"> <!-- it checks whether our manufacturers attribute which we set in the ManufacturerController is empty or not-->
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Manufacturer name</th>
+                            <th scope="col">Address</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="manufacturer : ${manufacturers}">
+                            <td th:text="${manufacturer.getName()}"></td>
+                            <td th:text="${manufacturer.getAddress()}"></td>
+                        </tr>
+                        <!--we show each manufacturer object and its attributes if the manufacturers attribute is not empty -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
